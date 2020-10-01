@@ -82,7 +82,7 @@ public class SwiftFlutterPayPlugin: NSObject, FlutterPlugin {
     private func paymentResult(pkPayment: PKPayment?) {
         if let result = flutterResult {
             if let payment = pkPayment {
-                let token = String(data: payment.token.paymentData, encoding: .utf8)
+                let token = String(data: payment.token, encoding: .utf8)
                 result(["token": token])
             } else {
                 result(FlutterError(code: "userCancelledError", message: "User cancelled the payment", details: nil))
